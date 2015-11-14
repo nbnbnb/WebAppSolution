@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "AjaxDemos";
+}
+
+<h2>AjaxDemos</h2>
+
+<div id="resultDiv" class="well">&nbsp;</div>
+
+<div class="container">
+
+    <blockquote>
+        通过 jQuery 和 jquery.unobtrusive-ajax.js 实现的 ASP.NET MVC 辅助方法
+        <br />
+        向应用程序中添加 jquery.unobtrusive-ajax.js 文件的目的是查找特定的 data- 特性，然后操纵元素使其表现出不同的行为
+    </blockquote>
+
+    @Ajax.ActionLink("ActionLink-ShowTime", "ShowTime", null, new AjaxOptions { UpdateTargetId = "resultDiv" }, new { @class = "btn btn-default" })
+
+    <h4>Ajax Form - Javascript Result</h4>
+    @using (Ajax.BeginForm("MockLogin", null, new AjaxOptions { }, new { @class = "form-inline" }))
+    {
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail3">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputPassword3">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="提交" />
+        </div>
+    }
+
+    <h4>Ajax Form - PartialView-Result</h4>
+    @using (Ajax.BeginForm("SearchUser", null, new AjaxOptions { UpdateTargetId = "resultDiv" }, new { @class = "form-inline" }))
+    {
+        <div class="form-group">
+            <label class="sr-only" for="username">姓名</label>
+            <input type="text" class="form-control" id="username" placeholder="请输入姓名" />
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="查询" />
+        </div>
+    }
+
+</div>
