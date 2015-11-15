@@ -1,0 +1,16 @@
+﻿@model MVC5App.Models.Book
+
+@Html.ValidationSummary(false)
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Title)
+    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "书名" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Price)
+    @Html.TextBoxFor(m => m.Price, new { @class = "form-control", placeholder = "价格", type = "number" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.BrithDate)
+    @Html.TextBoxFor(m => m.BrithDate, new { @class = "form-control", placeholder = "出生日期", type = "date" })
+</div>
